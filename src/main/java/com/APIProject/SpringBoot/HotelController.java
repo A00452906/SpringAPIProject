@@ -2,6 +2,7 @@ package com.APIProject.SpringBoot;
 
 import java.util.List;
 
+import dao.Response;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -32,17 +33,10 @@ public class HotelController {
 	 }
 
 	 @PostMapping("/HotelBook")
-	 public ResponseEntity addBooking( @RequestBody Bookingdetails Booking) {
+	 public ResponseEntity<Response> addBooking(@RequestBody Bookingdetails Booking) {
 	System.out.println("***********"+Booking);
     String message = hotelService.createBooking(Booking);
-    return new ResponseEntity<>(message, HttpStatus.CREATED);
+    return new ResponseEntity(new Response(message), HttpStatus.CREATED);
 	 }
-
-	/*@GetMapping("/BookingList")
-	public ResponseEntity<List<Hotel_New>> getBookingLists() {
-		System.out.println("inside");
-		List<Hotel_New> BookingList = hotelService.getAllHotels();
-		return new ResponseEntity<>(BookingList, HttpStatus.OK);
-	}*/
 }
 

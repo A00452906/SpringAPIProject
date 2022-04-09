@@ -25,13 +25,9 @@ public class Bookingdetails {
 	private Integer bookingid;
 	private LocalDate checkin;
 	private LocalDate checkout;
-	private Float totalbill;
-	private Integer totalrooms;
 	private Integer hotelid;
 	private Integer numberofdays;
-//	@OneToMany(cascade = CascadeType.ALL)
-//	@JoinColumn(name = "bookingidfk", referencedColumnName = "bookingid")
-//	List< HotelRooms > HotelRooms = new ArrayList< >();
+	private Integer numberofrooms;
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "bookingidfk", referencedColumnName = "bookingid")
 	List< Guest > Guest = new ArrayList< >();
@@ -53,25 +49,15 @@ public class Bookingdetails {
 	public void setcheckout(LocalDate checkout) {
 		this.checkout = checkout;
 	}
-	public Float gettotalbill() {
-		return totalbill;
+
+	public Integer getnumberofrooms() {
+		return numberofrooms;
 	}
-	public void settotalbill(Float totalbill) {
-		this.totalbill = totalbill;
+
+	public void setnumberofrooms(Integer numberofrooms) {
+		this.numberofrooms = numberofrooms;
 	}
-	public Integer gettotalrooms() {
-		return totalrooms;
-	}
-	public void settotalrooms(Integer totalrooms) {
-		this.totalrooms = totalrooms;
-	}
-//	public List<HotelRooms> gethotelRooms() {
-//		return HotelRooms;
-//	}
-//	public void sethotelRooms(List<HotelRooms> hotelRooms) {
-//		HotelRooms = hotelRooms;
-//	}
-	
+
 	public Integer gethotelid() {
 		return hotelid;
 	}
@@ -92,13 +78,17 @@ public class Bookingdetails {
 	public void setguest(List<Guest> guest) {
 		Guest = guest;
 	}
+
 	@Override
 	public String toString() {
-		return "Bookingdetails [bookingid=" + bookingid + ", checkin=" + checkin + ", checkout=" + checkout
-				+ ", totalbill=" + totalbill + ", totalrooms=" + totalrooms + ", hotelid=" + hotelid + ", numberofdays="
-				+ numberofdays + ", HotelRooms="  + ", Guest=" + Guest + "]";
+		return "Bookingdetails{" +
+				"bookingid=" + bookingid +
+				", checkin=" + checkin +
+				", checkout=" + checkout +
+				", hotelid=" + hotelid +
+				", numberofdays=" + numberofdays +
+				", Guest=" + Guest +
+				", numberofrooms=" + numberofrooms +
+				'}';
 	}
-
-	
-	
 }

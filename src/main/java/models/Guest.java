@@ -23,8 +23,8 @@ public class Guest {
 	@Id
  	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer guestid;
-	private Integer numberofguets;
-	private String primaryguestname;
+	//private Integer numberofguets;
+	private String guestname;
 	private String gender;
 	public Integer getguestid() {
 		return guestid;
@@ -32,47 +32,31 @@ public class Guest {
 	public void setguestid(Integer guestid) {
 		this.guestid = guestid;
 	}
-//	public Integer getbookingidfk() {
-//		return bookingidfk;
-//	}
-//	public void setbookingidfk(Integer bookingidfk) {
-//		this.bookingidfk = bookingidfk;
-//	}
-	public Integer getnumberofguets() {
-		return numberofguets;
+
+
+	public String getGuestname() {
+		return guestname;
 	}
-	public void setnumberofguets(Integer numberofguets) {
-		this.numberofguets = numberofguets;
+
+	public void setGuestname(String guestname) {
+		this.guestname = guestname;
 	}
-	public String getprimaryguestname() {
-		return primaryguestname;
-	}
-	public void setprimaryguestname(String primaryguestname) {
-		this.primaryguestname = primaryguestname;
-	}
+
 	public String getgender() {
 		return gender;
 	}
 	public void setgender(String gender) {
 		this.gender = gender;
 	}
-//	public Bookingdetails getBookingdetails() {
-//		return bookingdetails;
-//	}
-//	public void setBookingdetails(Bookingdetails bookingdetails) {
-//		this.bookingdetails = bookingdetails;
-//	}
+
+
+
 	@Override
 	public String toString() {
-		return "Guest [guestid=" + guestid + ", numberofguets=" + numberofguets
-				+ ", primaryguestname=" + primaryguestname + ", gender=" + gender + "]";
+		return "Guest{" +
+				"guestid=" + guestid +
+				", guestname='" + guestname + '\'' +
+				", gender='" + gender + '\'' +
+				'}';
 	}
-	
-//	@Override
-//	public String toString() {
-//		return "Guest [guestid=" + guestid + ", bookingidfk=" + bookingidfk + ", numberofguets=" + numberofguets
-//				+ ", primaryguestname=" + primaryguestname + ", gender=" + gender + "]";
-//	}
-	
-	
 }

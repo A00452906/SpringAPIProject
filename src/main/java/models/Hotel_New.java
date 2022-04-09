@@ -25,13 +25,24 @@ public class Hotel_New  implements Serializable{
 	    private Integer Room_price;
 	    private Integer Hotel_rating;
 	    private String Hotel_location;
-	    @OneToMany(cascade = CascadeType.ALL)
-		@JoinColumn(name = "hotelid", referencedColumnName = "Hotel_id")
-		List< HotelRooms > HotelRooms = new ArrayList< >();
+//	    @OneToMany(cascade = CascadeType.ALL)
+//		@JoinColumn(name = "hotelid", referencedColumnName = "Hotel_id")
+//		List< HotelRooms > HotelRooms = new ArrayList< >();
+
+		//new code added
+		private Integer availablerooms;
+
 		public Hotel_New() {
 			
 		}
-		public Integer gethotel_id() {
+
+	public Integer getAvailablerooms() {return availablerooms;}
+
+	public void setAvailablerooms(Integer availablerooms) {
+		this.availablerooms = availablerooms;
+	}
+
+	public Integer gethotel_id() {
 			return Hotel_id;
 		}
 		public void sethotel_id(Integer hotel_id) {
@@ -62,23 +73,30 @@ public class Hotel_New  implements Serializable{
 			Hotel_location = hotel_location;
 		}
 		
-		public List<HotelRooms> gethotelRooms() {
-			return HotelRooms;
-		}
-		public void sethotelRooms(List<HotelRooms> hotelRooms) {
-			HotelRooms = hotelRooms;
-		}
-		@Override
-		public String toString() {
-			return "Hotel_New [Hotel_id=" + Hotel_id + ", Hotel_name=" + Hotel_name + ", Room_price=" + Room_price
-					+ ", Hotel_rating=" + Hotel_rating + ", Hotel_location=" + Hotel_location + ", HotelRooms="
-					+ HotelRooms + "]";
-		}
+//		public List<HotelRooms> gethotelRooms() {
+//			return HotelRooms;
+//		}
+//		public void sethotelRooms(List<HotelRooms> hotelRooms) {
+//			HotelRooms = hotelRooms;
+//		}
+//		@Override
+//		public String toString() {
+//			return "Hotel_New [Hotel_id=" + Hotel_id + ", Hotel_name=" + Hotel_name + ", Room_price=" + Room_price
+//					+ ", Hotel_rating=" + Hotel_rating + ", Hotel_location=" + Hotel_location + ", HotelRooms="
+//					+ HotelRooms + "]";
+//		}
 
 
-	    
-		
-	
-
+	@Override
+	public String toString() {
+		return "Hotel_New{" +
+				"Hotel_id=" + Hotel_id +
+				", Hotel_name='" + Hotel_name + '\'' +
+				", Room_price=" + Room_price +
+				", Hotel_rating=" + Hotel_rating +
+				", Hotel_location='" + Hotel_location + '\'' +
+				", availablerooms=" + availablerooms +
+				'}';
+	}
 }
 
